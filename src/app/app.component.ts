@@ -29,6 +29,9 @@ export class AppComponent {
   pageAmount = 2;
   pageNumber: number = 0;
 
+  page(num: number) {
+    this.pageNumber = num;
+  }
   pageUp() {
     if (this.pageNumber >= this.pageAmount) return;
     this.scrolling = true;

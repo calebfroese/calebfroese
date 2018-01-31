@@ -1,5 +1,8 @@
+<div>
+    <button (click)="viewPage.emit(0)">HOME</button>
+    <button (click)="viewPage.emit(1)">PORTFOLIO</button>
+</div>
 <ul>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li (click)="viewPage.emit(0)"></li>
+    <li (click)="viewPage.emit(1)"></li>
 </ul>
