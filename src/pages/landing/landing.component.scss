@@ -2,16 +2,27 @@
   display: flex;
   width: 100vw;
   height: 100vh;
-  .flex-parent,
   canvas {
+    position: absolute;
     width: 100%;
     height: 100%;
+    z-index: -1;
   }
-  .flex-parent {
-    position: absolute;
+  .content {
+    margin: 0 4vw;
+    width: calc(100% - 8vw);
+    // height: calc(100% - 32vh);
+    height: 100%;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
+    h1 {
+      margin: 8vh 0 8vh 32vh;
+      text-align: right;
+      font-size: 8vw;
+    }
+    span {
+      color: orange;
+    }
   }
 }

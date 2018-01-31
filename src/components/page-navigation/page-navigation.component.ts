@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-page-nav',
@@ -6,5 +6,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./page-navigation.component.scss'],
 })
 export class PageNavigationComponent {
+  @Input() pageNumber: number;
   @Output() viewPage = new EventEmitter();
 }

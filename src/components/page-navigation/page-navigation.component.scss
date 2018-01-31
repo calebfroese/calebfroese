@@ -1,9 +1,17 @@
 :host() {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  .button-nav-container {
+    position: fixed;
+    padding: 8vh 4vw;
+    top: 0;
+
+    a {
+      color: grey;
+      margin: 1vw;
+    }
+
+    a.active {
+      color: black;
+      transition: 0.5s;
+    }
+  }
 }

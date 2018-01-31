@@ -1,6 +1,7 @@
-<div>
-    <button (click)="viewPage.emit(0)">HOME</button>
-    <button (click)="viewPage.emit(1)">PORTFOLIO</button>
+<div class="button-nav-container">
+    <a class="title" [ngClass]="{'active': pageNumber === 0}" (click)="viewPage.emit(0)">HOME</a>
+    <a class="title" [ngClass]="{'active': pageNumber === 1}" (click)="viewPage.emit(1)">PORTFOLIO</a>
+    
 </div>
 <ul>
     <li (click)="viewPage.emit(0)"></li>
