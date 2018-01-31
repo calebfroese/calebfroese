@@ -10,24 +10,34 @@ export class AppComponent {
   get pageClass() {
     return 'page' + this.pageNumber;
   }
-  scrolling: boolean;
-  pageNumber: number = 0;
-  @HostListener('window:animationend', ['$event'])
+  @HostListener('transitionend', ['$event'])
   animend(event) {
-    console.log(event);
+    this.scrolling = false;
+    console.log('transitionend');
   }
-  @HostListener('window:wheel', ['$event'])
+  @HostListener('wheel', ['$event'])
   scroll({ deltaY }: any) {
     if (this.scrolling) return;
     if (deltaY > 0) {
-      this.page(true);
+      this.pageUp();
     } else {
-      this.page(false);
+      this.pageDown();
     }
   }
-  page(page: boolean) {
+
+  scrolling: boolean;
+  pageAmount = 2;
+  pageNumber: number = 0;
+
+  pageUp() {
+    if (this.pageNumber >= this.pageAmount) return;
     this.scrolling = true;
-    this.pageNumber = page ? 1 : 0;
-    this.scrolling = false;
+    this.pageNumber++;
+  }
+
+  pageDown() {
+    if (this.pageNumber <= 0) return;
+    this.scrolling = true;
+    this.pageNumber--;
   }
 }
