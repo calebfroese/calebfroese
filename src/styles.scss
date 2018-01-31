@@ -13,3 +13,26 @@ body {
 .page2 {
   top: -200vh;
 }
+
+.anim-fade-on-active {
+  animation: 1s ease-out 1 fadeOut;
+  opacity: 0;
+}
+
+.page-active .anim-fade-on-active {
+  animation: 1s ease-out 1 fadeIn;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+}
