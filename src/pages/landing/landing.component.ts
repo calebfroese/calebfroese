@@ -19,6 +19,14 @@ export class LandingComponent implements AfterViewInit {
   camera: THREE.PerspectiveCamera;
   cube: THREE.Mesh;
 
+  @HostListener('window:mousemove', ['$event'])
+  mousemove(event: any) {
+    this.mouseX = event.clientX - window.innerWidth / 2;
+    this.mouseY = event.clientY - window.innerHeight / 2;
+  }
+  mouseX: number = 0;
+  mouseY: number = 60;
+
   @ViewChild('canvas') private canvasRef: ElementRef;
 
   @HostListener('window:resize', ['$event'])
@@ -37,16 +45,22 @@ export class LandingComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xeeeeee);
+    this.scene.background = new THREE.Color(0x2a1);
 
     this.camera = new THREE.PerspectiveCamera(60, this.getRatio(), 0.1, 1000);
-    this.camera.position.z = 1.2;
+    this.camera.position.z = 8;
+    this.camera.position.y = 10;
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const rgba = new THREE.Color(0x226666);
-    const material = new THREE.MeshBasicMaterial({ color: rgba });
+    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+    const rgba = new THREE.Color(0xff0000);
+    const material = new THREE.MeshPhongMaterial({ color: rgba, wireframe: true });
     this.cube = new THREE.Mesh(geometry, material);
     this.scene.add(this.cube);
+    this.cube.rotation.y = 80;
+
+    const light = new THREE.PointLight(0xffffff, 0.2);
+    this.scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+    this.scene.add(light);
 
     this.startRendering();
   }
@@ -78,9 +92,8 @@ export class LandingComponent implements AfterViewInit {
   }
 
   render() {
-    this.cube.rotation.x += 0.01;
-    this.cube.rotation.y += 0.01;
-    this.cube.rotation.z += 0.01;
+    this.cube.rotation.z += 0.00002 * this.mouseY;
+
     this.renderer.render(this.scene, this.camera);
   }
 }

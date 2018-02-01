@@ -19,37 +19,46 @@
       margin: 0 auto;
     }
     p {
+      color: white;
       margin: 0;
       padding: 0;
       text-align: left;
-      letter-spacing: 2vw;
-      font-size: 2vw;
+      letter-spacing: 4vw;
+      font-size: 4vw;
 
       margin: 10px 0 0 10px;
       white-space: nowrap;
       overflow: hidden;
     }
     .caleb {
-      width: calc((2vw + 1vw) * 5);
+      width: calc((4vw + 2vw) * 5);
       animation: type 1.2s steps(5, end);
     }
     .froese {
-      width: calc((2vw + 1vw) * 6);
+      width: calc((4vw + 2vw) * 6);
       animation: type 1.2s steps(6, end);
     }
     .web {
-      width: calc((2vw + 1vw) * 3);
-      animation: type 1.2s steps(3, end);
+      width: calc((4vw + 2vw) * 3);
+      animation: type2 3s steps(3, end);
     }
     .developer {
-      width: calc((2vw + 1vw) * 9);
-      animation: type 1.2s steps(9, end);
+      width: calc((4vw + 2vw) * 9);
+      animation: type2 3s steps(9, end);
     }
   }
 }
 
 @keyframes type {
   from {
+    width: 0;
+  }
+}
+@keyframes type2 {
+  from {
+    width: 0;
+  }
+  60% {
     width: 0;
   }
 }
