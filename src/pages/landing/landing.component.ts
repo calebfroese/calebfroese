@@ -40,7 +40,7 @@ export class LandingComponent implements AfterViewInit {
     this.scene.background = new THREE.Color(0xeeeeee);
 
     this.camera = new THREE.PerspectiveCamera(60, this.getRatio(), 0.1, 1000);
-    this.camera.position.z = 5;
+    this.camera.position.z = 1.2;
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const rgba = new THREE.Color(0x226666);

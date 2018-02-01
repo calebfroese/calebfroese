@@ -16,7 +16,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Arapey';
+  @import url('https://fonts.googleapis.com/css?family=Viga');
+  font-family: 'Viga';
+}
+p {
+  @import url('https://fonts.googleapis.com/css?family=Nova+Mono');
+  font-family: 'Nova Mono', monospace;
 }
 
 .page0 {
