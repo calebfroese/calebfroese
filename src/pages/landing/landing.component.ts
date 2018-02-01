@@ -45,18 +45,21 @@ export class LandingComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x2a1);
+    this.scene.background = new THREE.Color(0x311557);
 
     this.camera = new THREE.PerspectiveCamera(60, this.getRatio(), 0.1, 1000);
-    this.camera.position.z = 8;
-    this.camera.position.y = 10;
+    this.camera.position.z = 10;
+    this.camera.position.y = 8;
 
-    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-    const rgba = new THREE.Color(0xff0000);
-    const material = new THREE.MeshPhongMaterial({ color: rgba, wireframe: true });
+    const geometry = new THREE.TorusGeometry(10, 5, 16, 100);
+    const rgba = new THREE.Color(0x1c053a);
+    const material = new THREE.MeshPhongMaterial({
+      color: rgba,
+      wireframe: true,
+    });
     this.cube = new THREE.Mesh(geometry, material);
     this.scene.add(this.cube);
-    this.cube.rotation.y = 80;
+    this.cube.rotation.y = 1.2;
 
     const light = new THREE.PointLight(0xffffff, 0.2);
     this.scene.add(new THREE.AmbientLight(0xffffff, 0.8));
@@ -92,8 +95,7 @@ export class LandingComponent implements AfterViewInit {
   }
 
   render() {
-    this.cube.rotation.z += 0.00002 * this.mouseY;
-
+    this.cube.rotation.z += 0.00002 * -this.mouseY;
     this.renderer.render(this.scene, this.camera);
   }
 }

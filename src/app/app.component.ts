@@ -13,7 +13,6 @@ export class AppComponent {
   @HostListener('transitionend', ['$event'])
   animend(event) {
     this.scrolling = false;
-    console.log('transitionend');
   }
   @HostListener('wheel', ['$event'])
   scroll({ deltaY }: any) {
@@ -26,7 +25,7 @@ export class AppComponent {
   }
 
   scrolling: boolean;
-  pageAmount = 2;
+  pageAmount = 0;
   pageNumber: number = 0;
 
   page(num: number) {
